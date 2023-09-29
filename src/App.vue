@@ -8,7 +8,7 @@ export default {
     return {
       state,
       query: '',
-      flag: '',
+      movie: '',
     }
   },
 
@@ -18,32 +18,9 @@ export default {
 
       query = state.query
       state.fetchMovies(query)
-      this.getFlag();
       console.log('stai cercando..', query);
 
     },
-
-    getFlag(flag) {
-
-      if (movie.original_language === 'en') {
-
-        flag = 'GB'
-
-      } else if (movie.original_language === 'fr') {
-
-        flag = 'FR'
-
-      } else if (movie.original_language === 'it') {
-
-        flag = 'IT'
-
-      } else {
-
-        { { movie.original_language } }
-
-      }
-
-    }
 
   }
 }
@@ -56,7 +33,7 @@ export default {
   <button @click="showMovies">cerca</button>
 
   <ul>
-    <li v-for="movie in state.movies">
+    <li v-for="movie in  state.movies ">
       <p>
         {{ movie.original_title }}
       </p>
@@ -64,7 +41,9 @@ export default {
         {{ movie.title }}
       </p>
       <p>
-        <img src="https://flagsapi.com/`${getFlag(flag)}`/shiny/64.png">
+        <img
+          :src="'https://purecatamphetamine.github.io/country-flag-icons/3x2/' + movie.original_language.toUpperCase() + '.svg'"
+          alt="" :width="40">
       </p>
       <p>
         {{ movie.vote_average }}

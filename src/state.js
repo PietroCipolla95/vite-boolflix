@@ -4,15 +4,15 @@ import axios from 'axios';
 export const state = reactive({
 
     my_api_key: '41f0b1bdb7855d59b45d0dc81fd4906f',
-    base_url: '',
+    movie_url: '',
     query: '',
     movies: [],
 
     fetchMovies(query) {
 
-        this.base_url = 'https://api.themoviedb.org/3/search/movie';
+        this.movie_url = 'https://api.themoviedb.org/3/search/movie';
 
-        axios.get(this.base_url, {
+        axios.get(this.movie_url, {
             params: {
                 api_key: this.my_api_key,
                 query: state.query,
