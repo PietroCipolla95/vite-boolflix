@@ -8,14 +8,14 @@ export const state = reactive({
     query: '',
     movies: [],
 
-    fetchMovies() {
+    fetchMovies(query) {
 
         this.base_url = 'https://api.themoviedb.org/3/search/movie';
 
-        axios.get(base_url, {
+        axios.get(this.base_url, {
             params: {
                 api_key: this.my_api_key,
-                query: '',
+                query: state.query,
             }
         })
 
