@@ -35,18 +35,18 @@ export default {
   <ul>
     <li v-for="movie in  state.movies ">
       <p>
-        {{ movie.original_title }}
+        Title: {{ movie.original_title }}
       </p>
       <p>
-        {{ movie.title }}
+        OG Title: {{ movie.title }}
       </p>
       <p>
-        <img
-          :src="'https://purecatamphetamine.github.io/country-flag-icons/3x2/' + movie.original_language.toUpperCase() + '.svg'"
+        Lang: <img
+          :src="movie.original_language = 'en' ? 'https://flagsapi.com/GB/flat/64.png' : 'https://flagsapi.com/' + movie.original_language.toUpperCase() + '/flat/64.png'"
           alt="" :width="40">
       </p>
       <p>
-        {{ movie.vote_average }}
+        Avg Score: {{ movie.vote_average }}
       </p>
     </li>
   </ul>
