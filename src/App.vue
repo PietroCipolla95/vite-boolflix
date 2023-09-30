@@ -1,4 +1,5 @@
 <script>
+import { callWithAsyncErrorHandling } from 'vue'
 import { state } from './state.js'
 
 export default {
@@ -24,6 +25,13 @@ export default {
       console.log('stai cercando..', query);
 
     },
+
+    getVote(vote) {
+
+      let newVote = Math.round(vote / 2)
+      return newVote
+
+    }
 
   }
 }
@@ -54,7 +62,7 @@ export default {
             alt="" :width="40">
         </p>
         <p>
-          Avg Score: {{ movie.vote_average }}
+          Avg Score: {{ getVote(movie.vote_average) }}
         </p>
       </li>
     </ul>
@@ -78,7 +86,7 @@ export default {
             alt="" :width="40">
         </p>
         <p>
-          Avg Score: {{ serie.vote_average }}
+          Avg Score: {{ getVote(serie.vote_average) }}
         </p>
 
       </li>

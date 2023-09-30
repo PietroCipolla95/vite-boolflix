@@ -9,6 +9,7 @@ export const state = reactive({
     query: '',
     movies: [],
     series: [],
+    vote_average: '',
 
     fetchDatas(query) {
 
@@ -52,7 +53,7 @@ export const state = reactive({
                     console.log(error);
                 })
 
-    }
+    },
 
 
 })
