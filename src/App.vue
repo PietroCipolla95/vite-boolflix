@@ -42,6 +42,7 @@ export default {
 <template>
   <input type="search" v-model="state.query">
   <button @click="showTvMovie">cerca</button>
+  <i class="fa fa-star" aria-hidden="true"></i>
 
 
   <div class="d-flex">
