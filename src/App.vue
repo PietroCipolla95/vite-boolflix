@@ -10,6 +10,8 @@ export default {
       query: '',
       movie: '',
       serie: '',
+      base_img_url: 'https://image.tmdb.org/t/p/',
+      posterWidth: 'w185',
     }
   },
 
@@ -39,6 +41,7 @@ export default {
     <ul>
       <h2 v-if="state.movies.length > 0">Films</h2>
       <li v-for="movie in  state.movies">
+        <img :src="base_img_url + posterWidth + movie.poster_path" alt="">
         <p>
           Title: {{ movie.original_title }}
         </p>
@@ -56,9 +59,13 @@ export default {
       </li>
     </ul>
 
+
+
+
     <ul>
       <h2 v-if="state.series.length > 0">Tv Series</h2>
       <li v-for="serie in state.series">
+        <img :src="base_img_url + posterWidth + serie.poster_path" alt="">
         <p>
           Title: {{ serie.name }}
         </p>
