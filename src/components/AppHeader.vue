@@ -33,15 +33,15 @@ export default {
 }
 </script>
 <template>
-    <header class="bg-black p-3 border-bottom border-danger">
+    <header class="bg-black p-3 border-bottom border-danger px-4">
         <nav class="d-flex justify-content-between align-items-center">
             <h1 class="text-danger">
                 BOOLFLIX
             </h1>
-            <div class="d-flex align-items-center">
-                <input @keyup="showTvMovie" type="search" v-model="state.query" class="rounded border-3 border-danger ">
-                <button @click="showTvMovie" class="btn btn-danger ms-4 p-1">Search</button>
-            </div>
+            <form class="d-flex align-items-center">
+                <input @keyup="showTvMovie" type="search" v-model="state.query" class="rounded border-3 border-danger p-1">
+                <button @click="showTvMovie" class="btn btn-outline-danger ms-4 fw-semibold">Search</button>
+            </form>
         </nav>
     </header>
 </template>
