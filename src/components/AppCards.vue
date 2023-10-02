@@ -42,8 +42,8 @@ export default {
             <h2 v-if="state.movies.length > 0" class="mb-5 text-danger">Films</h2>
             <div class="col-4" v-for="movie in  state.movies">
                 <div class="my_card mb-3 rounded-3 border border-1 border-danger"
-                    :style="movie.poster_path !== 'null' ? { backgroundImage: `url(${base_img_url}${posterWidth}${movie.poster_path})` } : { backgroundImage: `url(${no_image_url})` }">
-                    <div class="infos text-light p-2 pt-2">
+                    :style="movie.poster_path !== null ? { backgroundImage: `url(${base_img_url}${posterWidth}${movie.poster_path})` } : { backgroundImage: `url(${no_image_url})` }">
+                    <div class="infos rounded-3 text-light p-2 pt-2">
                         <!-- title -->
                         <h4>
                             {{ movie.original_title }}
@@ -70,7 +70,7 @@ export default {
             <div class="col-4" v-for="serie in  state.series">
                 <div class="my_card mb-3 rounded-3 border border-1 border-danger"
                     :style="((serie.poster_path !== null) ? { backgroundImage: `url(${base_img_url}${posterWidth}${serie.poster_path})` } : { backgroundImage: `url(https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg)` })">
-                    <div class="infos text-light p-2 pt-2">
+                    <div class="infos rounded-3 text-light p-2 pt-2">
                         <!-- title -->
                         <h4>
                             {{ serie.name }}
