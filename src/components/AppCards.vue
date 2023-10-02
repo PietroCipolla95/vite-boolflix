@@ -15,6 +15,7 @@ export default {
             movie: '',
             serie: '',
             base_img_url: 'https://image.tmdb.org/t/p/',
+            no_image_url: 'https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg',
             posterWidth: 'w185',
         }
 
@@ -35,14 +36,14 @@ export default {
 </script>
 <template>
     <!-- row that contains series and films -->
-    <div class="row">
+    <div class="row g-0">
         <!-- films row -->
         <div class="row col-6 d-flex p-5">
-            <h2 v-if="state.movies.length > 0" class="mb-5">Films</h2>
+            <h2 v-if="state.movies.length > 0" class="mb-5 text-danger">Films</h2>
             <div class="col-4" v-for="movie in  state.movies">
-                <div class="my_card mb-3 rounded-3 border border-3 border-black"
-                    :style="{ backgroundImage: `url(${base_img_url}${posterWidth}${movie.poster_path})` }">
-                    <div class="infos text-light p-2 pt-5">
+                <div class="my_card mb-3 rounded-3 border border-1 border-danger"
+                    :style="movie.poster_path !== 'null' ? { backgroundImage: `url(${base_img_url}${posterWidth}${movie.poster_path})` } : { backgroundImage: `url(${no_image_url})` }">
+                    <div class="infos text-light p-2 pt-2">
                         <!-- title -->
                         <h4>
                             {{ movie.original_title }}
@@ -65,11 +66,11 @@ export default {
         </div>
         <!-- series row -->
         <div class="row col-6 d-flex p-5 align-content-start">
-            <h2 v-if="state.series.length > 0" class="mb-5">Series</h2>
+            <h2 v-if="state.series.length > 0" class="mb-5 text-danger">Series</h2>
             <div class="col-4" v-for="serie in  state.series">
-                <div class="my_card mb-3 rounded-3 border border-3 border-black"
-                    :style="{ backgroundImage: `url(${base_img_url}${posterWidth}${serie.poster_path})` }">
-                    <div class="infos text-light p-2 pt-5">
+                <div class="my_card mb-3 rounded-3 border border-1 border-danger"
+                    :style="((serie.poster_path !== null) ? { backgroundImage: `url(${base_img_url}${posterWidth}${serie.poster_path})` } : { backgroundImage: `url(https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg)` })">
+                    <div class="infos text-light p-2 pt-2">
                         <!-- title -->
                         <h4>
                             {{ serie.name }}
@@ -112,6 +113,7 @@ export default {
     &:hover {
         .infos {
             display: block;
+            cursor: pointer;
         }
     }
 
